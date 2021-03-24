@@ -1,4 +1,3 @@
-import { Mesa } from './../../../layout/shared/model/mesa';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Pedido } from 'src/app/layout/shared/model/pedido';

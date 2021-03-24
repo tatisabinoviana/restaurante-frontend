@@ -1,8 +1,8 @@
-import { SweetAlert } from './../../../layout/shared/sweet-alert';
-import { Mesa } from './../../../layout/shared/model/mesa';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Mesa } from './../../../layout/shared/model/mesa';
 import { MesasService } from 'src/app/layout/shared/services/mesa/mesas.service';
+import { SweetAlert } from './../../../layout/shared/sweet-alert';
 
 @Component({
   selector: 'app-incluir-mesa',
@@ -21,10 +21,10 @@ export class IncluirMesaComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {
-    this.configurarPedido();
+    this.configurarMesa();
   }
 
-  configurarPedido(){
+  configurarMesa(){
     this.mesa = this.formBuilder.group({
       nomeMesa: [null, Validators.required]
 

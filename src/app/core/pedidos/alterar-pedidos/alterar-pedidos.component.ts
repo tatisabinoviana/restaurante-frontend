@@ -33,7 +33,8 @@ export class AlterarPedidosComponent implements OnInit {
         item: [pedido.item, Validators.required],
         valor: [pedido.valor, Validators.required],
         situacao: [pedido.situacao, Validators.required]
-      })
+      });
+      this.lista.controls['situacao'].disable();
     })
   }
 
