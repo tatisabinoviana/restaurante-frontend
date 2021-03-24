@@ -1,0 +1,23 @@
+
+<app-card [titulo]="'Lista de Mesas'">
+    <p-table [value]="listaDeMesas" [paginator]="true" [rows]="8">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Mesa</th>
+          <th>Ação</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-mesa>
+        <tr>
+          <td>{{ mesa.nomeMesa }}</td>
+          <td style="display: flex; justify-content: flex-end;">
+            <div class="btn-group">
+              <button class="btn btn-primary" (click)="detalhesPedidos(mesa.id)"> Visualizar Pedidos</button>
+              <!-- <button class="btn btn-primary" (click)="fecharMesa(mesa.id)"> Fechar Mesa</button> -->
+              <button class="btn btn-primary" (click)="incluirMesa(mesa.id)"> Incluir uma Mesa</button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </app-card>

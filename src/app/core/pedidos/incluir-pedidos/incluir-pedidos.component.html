@@ -1,0 +1,19 @@
+<app-card [titulo]="'Incluir Pedido'">
+    <form [formGroup]="pedido">
+      <div class="form-group">
+  
+        <label>Item: {{ item.value }}</label>
+        <input type="text" class="form-control" formControlName="item">
+
+        <label>Valor: {{ valor.value }}</label>
+        <input type="number" class="form-control" formControlName="valor">
+
+        <label>Situacao: </label>
+        <input type="text" class="form-control" value="Novo" disabled>
+        <br>
+        <app-button (click)="submit()">Adicionar</app-button>
+  
+      </div>
+    </form>
+  </app-card>
+  

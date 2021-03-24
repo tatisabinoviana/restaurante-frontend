@@ -1,0 +1,26 @@
+<app-card [titulo]="'Lista de Pedidos'">
+    <p-table [value]="listaDePedidos" [paginator]="true" [rows]="10">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Item</th>
+                <th>Valor</th>
+                <th>Situação</th>
+                <th>Ações</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-pedido>
+        <tr>
+            <td>{{ pedido.item | titlecase }}</td>
+            <td>{{ pedido.valor }}</td>
+            <td>{{ pedido.situacao }}</td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-primary" (click)="alterarPedido(pedido.id, pedido)"> Editar</button>
+                    <button class="btn btn-primary" (click)="cancelarPedido(pedido.id, pedido)"> Cancelar</button>
+                    <button class="btn btn-primary" (click)="concluirPedido(pedido.id, pedido)"> Concluir</button>
+                </div>
+            </td>
+        </tr>
+        </ng-template>
+    </p-table>
+</app-card>

@@ -1,0 +1,14 @@
+<app-card [titulo]="'Incluir Mesa'">
+    <form [formGroup]="mesa">
+      <div class="form-group">
+  
+        <label>Mesa: {{ nomeMesa.value }}</label>
+        <br>
+        <input type="text" class="form-control" formControlName="nomeMesa">
+        <br>
+        <app-button (click)="submit()"> Adicionar</app-button>
+  
+      </div>
+    </form>
+  </app-card>
+  

@@ -1,0 +1,18 @@
+<app-card [titulo]="'Pedido'">
+    <form [formGroup]="lista">
+        <div class="form-group">
+
+        <label>Item:</label>
+        <input type="text" class="form-control" formControlName="item">
+
+        <label>Valor: </label>
+        <input type="number" class="form-control" formControlName="valor">
+
+        <label>Situação:</label>
+        <input type="text" class="form-control" formControlName="situacao">
+
+        <app-button (click)="submit()"> Enviar</app-button>
+
+        </div>
+    </form>
+</app-card>
