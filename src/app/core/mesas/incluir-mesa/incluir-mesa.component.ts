@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Mesa } from './../../../layout/shared/model/mesa';
@@ -17,7 +18,8 @@ export class IncluirMesaComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private mesasService: MesasService
+    private mesasService: MesasService,
+    private router: Router
     ) {}
 
   ngOnInit(): void {
@@ -38,7 +40,9 @@ export class IncluirMesaComponent implements OnInit {
       mesa.nomeMesa = this.nomeMesa.value;
 
       this.mesasService.incluir(mesa).subscribe((retorno: Mesa) => {
-        SweetAlert.exibirSucesso('Mesa' + retorno.nomeMesa + ' adicionada com sucesso!')
+        SweetAlert.exibirSucesso('Mesa' + retorno.nomeMesa + ' adicionada com sucesso!').then(() => {
+          this.router.navigate(['mesas/visualizar-mesa']);
+        })
       })
     } else {
       SweetAlert.exibirErro('Desculpe, mesa não adicionada.')

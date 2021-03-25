@@ -1,5 +1,8 @@
 
 <app-card [titulo]="'Lista de Mesas'">
+  <div style="display: flex; justify-content: flex-end;">
+    <button class="btn btn-primary" (click)="incluirMesa()"> Incluir uma Mesa</button>
+  </div>
     <p-table [value]="listaDeMesas" [paginator]="true" [rows]="8">
       <ng-template pTemplate="header">
         <tr>
@@ -14,7 +17,6 @@
             <div class="btn-group">
               <button class="btn btn-primary" (click)="detalhesPedidos(mesa.id)"> Visualizar Pedidos</button>
               <!-- <button class="btn btn-primary" (click)="fecharMesa(mesa.id)"> Fechar Mesa</button> -->
-              <button class="btn btn-primary" (click)="incluirMesa()"> Incluir uma Mesa</button>
             </div>
           </td>
         </tr>

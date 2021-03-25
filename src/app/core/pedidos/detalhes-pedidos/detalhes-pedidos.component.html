@@ -1,4 +1,7 @@
 <app-card [titulo]="'Lista de Pedidos'">
+    <div style="display: flex; justify-content: flex-end;">
+        <button class="btn btn-primary fas fa-plus" (click)="mudarRota('pedidos/incluir-pedidos')"> Adicionar Novo Pedido</button>
+    </div>
     <p-table [value]="listaDePedidos" [paginator]="true" [rows]="10">
         <ng-template pTemplate="header">
             <tr>

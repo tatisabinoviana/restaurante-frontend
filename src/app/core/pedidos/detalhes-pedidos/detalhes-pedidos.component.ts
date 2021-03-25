@@ -56,4 +56,8 @@ export class DetalhesPedidosComponent implements OnInit {
         })
       })
   }
+
+  mudarRota(rota: string): void {
+    this.router.navigate([rota]);
+  }
 }

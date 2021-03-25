@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Pedido } from 'src/app/layout/shared/model/pedido';
@@ -20,7 +21,8 @@ export class IncluirPedidosComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private pedidoService: PedidoService
+    private pedidoService: PedidoService,
+    private router: Router
     ) {}
 
   ngOnInit(): void {
@@ -50,11 +52,13 @@ export class IncluirPedidosComponent implements OnInit {
       pedido.situacao = 'Novo';
 
       this.pedidoService.incluir(pedido).subscribe((retorno: Pedido) => {
-        SweetAlert.exibirSucesso('Pedido' + retorno.item + ' adicionado com sucesso!')
+        SweetAlert.exibirSucesso('Pedido' + retorno.item + ' adicionado com sucesso!').then(() => {
+          this.router.navigate([`pedidos/detalhes-pedidos/${retorno.id}`]);
+        })
       })
     } else {
       SweetAlert.exibirErro('Desculpe, pedido não adicionado.')
-    }
+    };
   }
 
 }
