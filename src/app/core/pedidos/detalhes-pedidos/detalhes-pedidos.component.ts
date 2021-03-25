@@ -26,10 +26,6 @@ export class DetalhesPedidosComponent implements OnInit {
   alterarPedido(id, pedido: Pedido) {
     this.router.navigate([`pedidos/alterar-pedidos/${id}`, pedido])
   }
-  // cancelarPedido(id, pedido: Pedido) {
-  //   this.router.navigate([`pedidos/cancelar-pedidos/${id}`, pedido])
-
-  // }
   cancelarPedido(id, pedido: Pedido) {
     const pedidoCancelado: Pedido = new Pedido();
 
@@ -39,7 +35,7 @@ export class DetalhesPedidosComponent implements OnInit {
 
       this.pedidoService.alterar(id, pedidoCancelado).subscribe((retorno: Pedido) => {
         SweetAlert.exibirSucesso('Pedido ' + retorno.item + ' cancelado com sucesso!').then(() => {
-          this.router.navigate(['pedidos/detalhes-pedidos']);
+          this.router.navigate([`pedidos/detalhes-pedidos/${id}`]);
         })
       })
   }
@@ -52,7 +48,7 @@ export class DetalhesPedidosComponent implements OnInit {
 
       this.pedidoService.alterar(id, pedidoConcluido).subscribe((retorno: Pedido) => {
         SweetAlert.exibirSucesso('Pedido ' + retorno.item + ' concluído com sucesso!').then(() => {
-          this.router.navigate(['pedidos/detalhes-pedidos/']);
+          this.router.navigate([`pedidos/detalhes-pedidos/${pedido.id}`]);
         })
       })
   }

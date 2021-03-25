@@ -55,5 +55,4 @@ export class AlterarPedidosComponent implements OnInit {
       SweetAlert.exibirErro('Pedido Inválido')
     }
   }
-
 }

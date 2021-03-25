@@ -5,7 +5,6 @@ import { Pedido } from 'src/app/layout/shared/model/pedido';
 import { PedidoService } from '../../../layout/shared/services/pedido/pedido.service';
 import { SweetAlert } from '../../../layout/shared/sweet-alert';
 
-
 @Component({
   selector: 'app-incluir-pedidos',
   templateUrl: './incluir-pedidos.component.html',
@@ -27,19 +26,12 @@ export class IncluirPedidosComponent implements OnInit {
 
   ngOnInit(): void {
     this.configurarPedido();
-    
-    // let mesas = [
-    // new Mesa('01', 'Mesa 01'),
-    
-    // ];
   }
 
   configurarPedido(){
     this.pedido = this.formBuilder.group({
       item: [null, Validators.required],
       valor: [null, Validators.required]
-      // situacao: [null, Validators.required]
-
     })
   }
 

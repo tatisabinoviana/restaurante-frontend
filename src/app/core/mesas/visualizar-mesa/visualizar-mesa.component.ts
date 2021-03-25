@@ -25,9 +25,6 @@ export class VisualizarMesaComponent implements OnInit {
   detalhesPedidos(id) {
     this.router.navigate([`pedidos/detalhes-pedidos/${id}`])
   }
-  // fecharMesa(id, mesa: Mesa) {
-  //   this.router.navigate
-  // }
 
   incluirMesa() {
     this.router.navigate([`mesas/incluir-mesa/`])
