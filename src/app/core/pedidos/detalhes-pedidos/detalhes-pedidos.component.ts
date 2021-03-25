@@ -44,6 +44,16 @@ export class DetalhesPedidosComponent implements OnInit {
       })
   }
   concluirPedido(id, pedido: Pedido) {
-    this.router.navigate([`pedidos/concluir-pedidos/${id}`, pedido])
+    const pedidoConcluido: Pedido = new Pedido();
+
+      pedidoConcluido.item = pedido.item;
+      pedidoConcluido.valor = pedido.valor;
+      pedidoConcluido.situacao = "Concluído";
+
+      this.pedidoService.alterar(id, pedidoConcluido).subscribe((retorno: Pedido) => {
+        SweetAlert.exibirSucesso('Pedido ' + retorno.item + ' concluído com sucesso!').then(() => {
+          this.router.navigate(['pedidos/detalhes-pedidos/']);
+        })
+      })
   }
 }
