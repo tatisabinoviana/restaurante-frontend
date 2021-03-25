@@ -1,3 +1,4 @@
+import { SweetAlert } from './../../../layout/shared/sweet-alert';
 import { Router } from '@angular/router';
 import { PedidoService } from './../../../layout/shared/services/pedido/pedido.service';
 import { Pedido } from './../../../layout/shared/model/pedido';
@@ -25,8 +26,22 @@ export class DetalhesPedidosComponent implements OnInit {
   alterarPedido(id, pedido: Pedido) {
     this.router.navigate([`pedidos/alterar-pedidos/${id}`, pedido])
   }
+  // cancelarPedido(id, pedido: Pedido) {
+  //   this.router.navigate([`pedidos/cancelar-pedidos/${id}`, pedido])
+
+  // }
   cancelarPedido(id, pedido: Pedido) {
-    this.router.navigate([`pedidos/cancelar-pedidos/${id}`, pedido])
+    const pedidoCancelado: Pedido = new Pedido();
+
+      pedidoCancelado.item = pedido.item;
+      pedidoCancelado.valor = pedido.valor;
+      pedidoCancelado.situacao = "Cancelado";
+
+      this.pedidoService.alterar(id, pedidoCancelado).subscribe((retorno: Pedido) => {
+        SweetAlert.exibirSucesso('Pedido ' + retorno.item + ' cancelado com sucesso!').then(() => {
+          this.router.navigate(['pedidos/detalhes-pedidos']);
+        })
+      })
   }
   concluirPedido(id, pedido: Pedido) {
     this.router.navigate([`pedidos/concluir-pedidos/${id}`, pedido])
